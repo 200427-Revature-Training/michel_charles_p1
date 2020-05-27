@@ -1,6 +1,6 @@
 Project 1 
 
-We are tasked to program an web application with interactive user experience. 
+We are tasked to program a web application with interactive user experience. 
 
 Technologies used are as follows:
 - NodeJS
