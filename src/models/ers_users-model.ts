@@ -1,4 +1,4 @@
-export class ErsUserRoles {
+export class ErsUsers {
 id: number;
 userName: string;
 password: string;
@@ -8,13 +8,13 @@ email: string;
 roleID: number;
 
 
-static from (obj: ErsUserRolesRow): ErsUserRoles{
-const ersUserRoles = new ErsUserRoles(
+static from (obj: ErsUsersRow): ErsUsers{
+const ersUsers= new ErsUsers(
 obj.ers_users_id, obj.ers_username, obj.ers_password,
 obj.user_first_name, obj.user_last_name, obj.user_email,
 obj.user_role_id
 );
-return ersUserRoles;
+return ersUsers;
 };
 
 
@@ -38,7 +38,7 @@ this.roleID = roleID;
 };
 
 
-export interface ErsUserRolesRow {
+export interface ErsUsersRow {
 ers_users_id: number;
 ers_username: string;
 ers_password: string;
