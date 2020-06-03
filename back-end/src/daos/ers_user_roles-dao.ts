@@ -1,52 +1,52 @@
 import { db } from '../daos/db';
-import { ErsUserRoles, ErsUserRolesRow } from '../models/ers_user_roles-model';
+import { ErsUsersRoles, ErsUsersRolesRow } from '../models/ers_user_roles-model';
 
 
-export async function getAllUserRoles(): Promise<ErsUserRoles[]> {
+export async function getAllUserRoles(): Promise<ErsUsersRoles[]> {
 
 const sql = 'SELECT * FROM ers_user_roles';
 
-const result = await db.query<ErsUserRolesRow>(sql, []);
-return result.rows.map(ErsUserRoles.from);
+const result = await db.query<ErsUsersRolesRow>(sql, []);
+return result.rows.map(ErsUsersRoles.from);
 };
 
 
-export async function getUserRoleById(id: number): Promise<ErsUserRoles>{
+export async function getUserRoleById(id: number): Promise<ErsUsersRoles>{
 
 const sql = 'SELECT * FROM WHERE ers_user_role_id = $1';
 
-const result = await db.query<ErsUserRolesRow>(sql, [id]);
+const result = await db.query<ErsUsersRolesRow>(sql, [id]);
 
-return result.rows.map(ErsUserRoles.from)[0];
+return result.rows.map(ErsUsersRoles.from)[0];
 };
 
 
-export async function saveUserRole(ersUserRoles: ErsUserRoles): Promise<ErsUserRoles>{
+export async function saveUserRole(ersUsersRoles: ErsUsersRoles): Promise<ErsUsersRoles>{
 
 const sql = 'INSERT INTO ers_user_roles (user_role) \
 VALUES ($1) RETURNING *';
 
-const result = await db.query<ErsUserRolesRow>(sql, [ersUserRoles.role]);
-return result.rows.map(ErsUserRoles.from)[0];
+const result = await db.query<ErsUsersRolesRow>(sql, [ersUsersRoles.role]);
+return result.rows.map(ErsUsersRoles.from)[0];
 };
 
-export async function patchUserRole(ersUserRoles: ErsUserRoles): Promise<ErsUserRoles> {
+export async function patchUserRole(ersUsersRoles: ErsUsersRoles): Promise<ErsUsersRoles> {
 
 const sql = `UPDATE ers_user_roles SET user_role = COALESCE($1, user_role)
 WHERE ers_user_role_id = $2 RETURNING *`;
 
-const result = await db.query<ErsUserRolesRow>(sql, [
-ersUserRoles.id,
-ersUserRoles.role
+const result = await db.query<ErsUsersRolesRow>(sql, [
+ersUsersRoles.id,
+ersUsersRoles.role
 ]);
-return result.rows.map(ErsUserRoles.from)[0];
+return result.rows.map(ErsUsersRoles.from)[0];
 };
 
 
-export async function deleteUserRole(id: number): Promise<ErsUserRoles> {
+export async function deleteUserRole(id: number): Promise<ErsUsersRoles> {
 
 const sql = `DELETE FROM ers_user_roles WHERE ers_user_role_id = $1 RETURNING *`;
 
-const result = await db.query<ErsUserRolesRow>(sql, [id]);
-return result.rows.map(ErsUserRoles.from)[0];
+const result = await db.query<ErsUsersRolesRow>(sql, [id]);
+return result.rows.map(ErsUsersRoles.from)[0];
 };

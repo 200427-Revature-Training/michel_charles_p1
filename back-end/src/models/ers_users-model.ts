@@ -9,12 +9,12 @@ roleID: number;
 
 
 static from (obj: ErsUsersRow): ErsUsers{
-const ersUsers= new ErsUsers(
+const ErsUserss= new ErsUsers(
 obj.ers_users_id, obj.ers_username, obj.ers_password,
 obj.user_first_name, obj.user_last_name, obj.user_email,
 obj.user_role_id
 );
-return ersUsers;
+return ErsUserss;
 };
 
 

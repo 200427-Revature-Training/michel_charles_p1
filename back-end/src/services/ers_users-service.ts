@@ -1,34 +1,34 @@
 import { ErsUsers } from '../models/ers_users-model';
-import * as ersUsersDao from '../daos/ers_users-dao';
+import * as ErsUserssDao from '../daos/ers_users-dao';
 
 export async function getAllUsers(): Promise<ErsUsers[]> {
-return ersUsersDao.getAllUsers();
+return ErsUserssDao.getAllUsers();
 };
 
 export async function getUserById(id: number): Promise<ErsUsers> {
-return ersUsersDao.getUserById(id);
+return ErsUserssDao.getUserById(id);
 };
 
-export async function saveUSer(ersUsers: any): Promise<ErsUsers> {
-const newErsUsers = new ErsUsers(
+export async function saveUSer(ErsUserss: any): Promise<ErsUsers> {
+const newErsUserss = new ErsUserss(
 undefined,
-ersUsers.userName,
-ersUsers.password,
-ersUsers.firstName,
-ersUsers.lastName,
-ersUsers.email,
-ersUsers.roleId
+ErsUserss.userName,
+ErsUserss.password,
+ErsUserss.firstName,
+ErsUserss.lastName,
+ErsUserss.email,
+ErsUserss.roleId
 );
 
 if (
-ersUsers.userName &&
-ersUsers.password &&
-ersUsers.firstName &&
-ersUsers.lastName &&
-ersUsers.email &&
-ersUsers.roleId
+ErsUserss.userName &&
+ErsUserss.password &&
+ErsUserss.firstName &&
+ErsUserss.lastName &&
+ErsUserss.email &&
+ErsUserss.roleId
 ){
-return ersUsersDao.saveUSer(newErsUsers);
+return ErsUserssDao.saveUSer(newErsUserss);
 } else {
 return new Promise((resolve, reject) => reject(422));
 };
@@ -36,7 +36,7 @@ return new Promise((resolve, reject) => reject(422));
 
 export async function patchUser(input: any): Promise<ErsUsers> {
 
-const ersUsers = new ErsUsers(
+const ErsUserss = new ErsUsers(
 input.id,
 input.userName,
 input.password,
@@ -46,12 +46,12 @@ input.email,
 input.roleID
 );
 
-if (!ersUsers.id){
+if (!ErsUserss.id){
 throw new Error ('400');
 }
-return ersUsersDao.patchUser(ersUsers);
+return ErsUserssDao.patchUser(ErsUserss);
 };
 
 export async function deleteUser(id: number): Promise<ErsUsers> {
-return ersUsersDao.deleteUser(id);
+return ErsUserssDao.deleteUser(id);
 };
