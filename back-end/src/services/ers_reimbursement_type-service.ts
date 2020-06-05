@@ -11,7 +11,7 @@ return ersReimbTypeDao.getReimbTypeById(id);
 
 export async function saveReimbType(ersReimbType: any): Promise<ErsReimbType> {
 const newErsReimbType = new ErsReimbType(
-undefined,
+ersReimbType.id,
 ersReimbType.type,
 );
 

@@ -12,7 +12,7 @@ return ersReimbDao.getReimbById(id);
 
 export async function saveReimb(ersreimb: any): Promise<ErsReimb> {
 const newErsReimb = new ErsReimb(
-undefined,
+ersreimb.id,
 ersreimb.amount,
 ersreimb.submitted,
 ersreimb.resolved,

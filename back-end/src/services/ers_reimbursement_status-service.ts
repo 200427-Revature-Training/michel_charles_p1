@@ -12,7 +12,7 @@ return ersReimbStatusDao.getAllReimbStatusesById(id);
 
 export async function saveReimbStatus(ersReimbStatus: ErsReimbStatus): Promise<ErsReimbStatus>{
 const newErsReimbStatus = new ErsReimbStatus(
-undefined,
+ersReimbStatus.id,
 ersReimbStatus.status
 );
 

@@ -14,10 +14,6 @@ const ers_reimbursement_status: ErsReimbStatus[]= rows.map(row => ErsReimbStatus
 return ers_reimbursement_status;
 })
 
-.catch(err => {
-console.log(err);
-return undefined;
-});
 }
 
 export async function getAllReimbStatusesById(id: number): Promise<ErsReimbStatus>{

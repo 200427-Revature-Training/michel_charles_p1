@@ -2,7 +2,7 @@ import express from 'express';
 import * as ersReimbStatusService from '../services/ers_reimbursement_status-service';
 import { ErsReimbStatus } from '../models/ers_reimbursement_status-model';
 
-export const ersReimbStatusRouter = express.router();
+export const ersReimbStatusRouter = express.Router();
 
 ersReimbStatusRouter.get('', async (request, response, next) =>{
 let ersreimbstatuses: ErsReimbStatus[];
