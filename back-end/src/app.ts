@@ -1,11 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { db } from './daos/db';
-import { ersReimbRouter } from './routers/ers_reimbursement-router';
-import { ersReimbStatusRouter } from "./routers/ers_reimbursement_status-router";
-import { ersReimbTypeRouter } from "./routers/ers_reimbursement_type-router";
-import { ErsUsersRolesRouter } from "./routers/ers_user_roles-router";
-import { ErsUsersRouter } from "./routers/ers_users-router";
+
 
 const app = express();
 
@@ -20,11 +16,6 @@ app.use(bodyParser.json());
 /*
     ? Router Registration
 */
-app.use('/reimb', ersReimbRouter);
-app.use('/status', ersReimbStatusRouter);
-app.use('/type', ersReimbTypeRouter);
-app.use('/roles', ErsUsersRolesRouter);
-app.use('/user', ErsUsersRouter);
 
 
 /*
@@ -44,5 +35,6 @@ process.on('unhandledRejection', () => {
 });
 
 app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}`);
+    console.log(`ERS is live! on http://localhost:${port}`);
+    
 });

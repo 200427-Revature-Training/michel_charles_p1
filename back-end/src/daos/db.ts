@@ -12,6 +12,6 @@ export const db = new Pool({
     password: process.env.NODE_APP_PASS
 });
 
-/*db.on('connect', (client) => {
+db.on('connect', (client) => {
     client.query('SET search_path TO my_schema, public');
-});*/
+})
